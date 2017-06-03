@@ -1,14 +1,14 @@
 /*
   Unsere Mood Lampe
 
-  Bereit von Euch angepasst zu werden. 
+  Bereit von Euch angepasst zu werden.
   Wir benutzen hier den Common Kathode Modus (alle negativen Pole sind zusammengehängt)
  */
- 
+
 // Konstanten festlegen: Konstanten können im Programm nicht überschrieben werden.
-const int redPin = 11;      // Der Pin an welchem das rote LED angehängt ist
-const int greenPin = 10;    // Der Pin an welchem das grüne LED angehängt ist
-const int bluePin = 9;      // Der Pin an welchem das blaue LED angehängt ist
+const int redPin = 10;      // Der Pin an welchem das rote LED angehängt ist
+const int greenPin = 9;     // Der Pin an welchem das grüne LED angehängt ist
+const int bluePin = 11;      // Der Pin an welchem das blaue LED angehängt ist
 
 // Die Setup-Schleife läuft nach dem Start des Arduino genau 1x durch
 void setup() {
@@ -23,11 +23,11 @@ void loop() {
   // Beginnen wir mit einem roten LED
   rgbColor[0] = 255;
   rgbColor[1] = 0;
-  rgbColor[2] = 0;  
+  rgbColor[2] = 0;
 
   // Wählt aus welche Farben an Intensität zu- oder abnehmen sollen.
   for (int decColor = 0; decColor < 3; decColor += 1) {
-    
+
     int incColor;
     if (decColor == 2) {
         incColor = 0;
@@ -39,7 +39,7 @@ void loop() {
     for(int i = 0; i < 255; i += 1) {
       rgbColor[decColor] -= 1;
       rgbColor[incColor] += 1;
-      
+
       setColorRgb(rgbColor[0], rgbColor[1], rgbColor[2]);
       delay(5);
     }
